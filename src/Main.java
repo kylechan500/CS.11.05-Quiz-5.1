@@ -1,16 +1,15 @@
 public class Main {
 
-    /**
-     * Given two arrays of integers, write a method called combine that combines the two arrays into one larger array.
-     * The method combine will return a new one dimensional array of integers.
-     * int[] myArray1 = {1,3,5,7,9};
-     * int[] myArray2 = {2,4,6,8,10,12,14,16};
-     * zip(myArray1, myArray2) → {1,3,5,7,9,2,4,6,8,10,12,14,16}
-     */
     public static int[] combine(int[] array1, int[] array2) {
 
-        return null;
-
+        int[] a = new int[array1.length+array2.length];
+        for(int i=0;i<array1.length;i++){
+            a[i] = array1[i];
+        }
+        for(int i=array1.length;i<array1.length+array2.length;i++){
+            a[i] = array2[i-array1.length];
+        }
+        return a;
     }
 
     /**
@@ -21,9 +20,15 @@ public class Main {
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] zip(int[] array1, int[] array2) {
-
-        return null;
-
+        int[] a = new int[array1.length+array2.length];
+        int x = 0;
+        for(int i = 0;i<array1.length;i++){
+            a[x] = array1[i];
+            x++;
+            a[x] = array2[i];
+            x++;
+        }
+        return a;
     }
 
     /**
@@ -35,8 +40,10 @@ public class Main {
      */
     public static int[] product(int[] array1, int[] array2) {
 
-        return null;
-
+        for(int i = 0;i<array1.length;i++){
+            array1[i] *= array2[i];
+        }
+        return array1;
     }
 
     /**
@@ -56,15 +63,21 @@ public class Main {
      * capitalCount(words) → {1, 2, 2, 0}
      */
     public static int[] capitalCount(String[] words) {
-
-        return null;
-
+        int[] a = new int[words.length];
+        for(int i = 0; i <words.length;i++) {
+            a[i] = countCapitalLetters(words[i]);
+        }
+        return a;
     }
 
     public static int countCapitalLetters(String word) {
-
-        return 0;
-
+        int a=0;
+        for(int i = 0; i < word.length(); i++){
+            if(word.charAt(i)>='A'&&word.charAt(i)<='Z'){
+                a++;
+            }
+        }
+        return a;
     }
 
 }
